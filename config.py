@@ -1,12 +1,15 @@
 import os
 
-API_KEY = "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"
-TABLE_NAME = "Azure devOps"
-MEMORY_FILE = "query_memory.json"
+# Database Configuration
+TABLE_NAME = "azure_devops_bugs"
+SCHEMA_NAME = "dbo"
 DB_CONNECTION_STRING = (
-    "mssql+pyodbc://localhost/Project"
-    "?driver=ODBC+Driver+17+for+SQL+Server"
-    "&trusted_connection=yes"
+    "mssql+pyodbc://localhost/Project?"
+    "driver=ODBC+Driver+17+for+SQL+Server&"
+    "trusted_connection=yes&"
+    "TrustServerCertificate=yes"
 )
 
-
+# Application Settings
+MEMORY_FILE = "query_memory.json"
+OLLAMA_MODEL = "qwen2.5-coder:7b"

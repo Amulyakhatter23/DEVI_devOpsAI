@@ -25,5 +25,8 @@
     "Workload distribution across team sort in descending order only total tickets & % from total with only 2 decimal places": "SELECT \n    AssignedTo, \n    COUNT(*) AS TotalTickets, \n    CONVERT(DECIMAL(10, 2), COUNT(*) * 100.0 / (SELECT COUNT(*) FROM dbo.azure_devops_bugs)) AS Percentage\nFROM \n    dbo.azure_devops_bugs\nGROUP BY \n    AssignedTo\nORDER BY \n    TotalTickets DESC;",
     "Bugs by environment sort in desc, and %from total to 2 decimal places": "SELECT \n    Environment, \n    COUNT(*) AS TotalBugs, \n    CONVERT(DECIMAL(10, 2), COUNT(*) * 100.0 / (SELECT COUNT(*) FROM dbo.azure_devops_bugs)) AS Percentage\nFROM \n    dbo.azure_devops_bugs\nGROUP BY \n    Environment\nORDER BY \n    TotalBugs DESC;",
     "Top 5 assignees by bugs closed last month": "SELECT TOP 5 \n    AssignedTo, \n    COUNT(Id) AS BugCount\nFROM \n    dbo.azure_devops_bugs\nWHERE \n    State = 'Closed' \n    AND DATEDIFF(month, ISNULL(Changed_Date, GETDATE()), GETDATE()) = 1\nGROUP BY \n    AssignedTo\nORDER BY \n    BugCount DESC;",
-    "What is number of bugs in security?": "SELECT COUNT(*) AS NumberOfBugs \nFROM dbo.azure_devops_bugs \nWHERE Environment = 'Security'"
+    "What is number of bugs in security?": "SELECT COUNT(*) AS NumberOfBugs \nFROM dbo.azure_devops_bugs \nWHERE Environment = 'Security'",
+    "Show me the count of bugs by severity": "SELECT \n    Severity, \n    COUNT(*) AS CountOfBugs \nFROM \n    dbo.azure_devops_bugs \nGROUP BY \n    Severity",
+    "Show me the count of items by State desc order": "SELECT \n    [State], \n    COUNT(*) AS Count \nFROM \n    [dbo].[azure_devops_bugs] \nGROUP BY \n    [State] \nORDER BY \n    Count DESC",
+    "What is people with least no of tickets assigned to them\n\n": "SELECT AssignedTo, COUNT(*) AS NumberOfTickets \nFROM dbo.azure_devops_bugs \nWHERE State = 'Closed' \nGROUP BY AssignedTo \nORDER BY NumberOfTickets ASC;"
 }
