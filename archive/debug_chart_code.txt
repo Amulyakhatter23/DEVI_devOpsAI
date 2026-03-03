@@ -1,9 +1,0 @@
-```python
-plt.figure(figsize=(10, 6))
-plt.bar(df['State'], df['CountOfTickets'], color='skyblue')
-plt.title('Count of Tickets by State')
-plt.xlabel('State')
-plt.ylabel('Count of Tickets')
-plt.xticks(rotation=45, ha='right')
-plt.show()
-```

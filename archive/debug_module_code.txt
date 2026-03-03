@@ -1,8 +1,0 @@
-```python
-plt.bar(df['Module'], df['CountOfTickets'])
-plt.title('Count of Tickets per Module')
-plt.xlabel('Module')
-plt.ylabel('Count of Tickets')
-plt.xticks(rotation=45, ha='right')
-plt.show()
-```
